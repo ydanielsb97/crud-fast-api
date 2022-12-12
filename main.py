@@ -29,13 +29,13 @@ def raise_not_found(message: str):
     raise HTTPException(status.HTTP_404_NOT_FOUND, message)
 
 @app.get("/")
-def root(): return {"message": "Hello World"}
+def root(): return {"message": "Working!"}
 
-@app.get("/posts")
+@app.get("/api/posts")
 def get_posts():
     return {"data": my_posts}
 
-@app.get("/posts/{id}")
+@app.get("/api/posts/{id}")
 def get_post(id: int):
     
     post = get_one_post(id)    
@@ -46,7 +46,7 @@ def get_post(id: int):
         # return {"message": f"Post with id {id} was not found"}
     return {"data": post}
 
-@app.post("/posts", status_code=status.HTTP_201_CREATED)
+@app.post("/api/posts", status_code=status.HTTP_201_CREATED)
 def create_post(post: Post):
     post_dict = post.dict()
     post_dict['id'] = randrange(0, 1000000)
@@ -54,7 +54,7 @@ def create_post(post: Post):
     my_posts.append(post_dict)
     return {"data": post_dict}
 
-@app.delete("/posts/{id}", status_code=status.HTTP_204_NO_CONTENT)
+@app.delete("/api/posts/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(id: int):
     post = get_one_post(id)
     if not post:
@@ -67,7 +67,7 @@ def delete_post(id: int):
     
     return None
 
-@app.put("/posts/{id}")
+@app.patch("/api/posts/{id}")
 def update_post(id: int, post: Post):
     
     post_index = get_index_post(id)
