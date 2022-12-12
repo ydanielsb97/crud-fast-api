@@ -1,14 +1,15 @@
 # CRUD with FastAPI
 
-A simple CRUD API developed with python using the FastAPI framework.
+A simple CRUD API developed with python using the FastAPI framework. Postman Documentation: https://documenter.getpostman.com/view/10890377/2s8YzTU36K
 
-Documentation: https://documenter.getpostman.com/view/10890377/2s8YzTU36K
+![FastAPI](https://repository-images.githubusercontent.com/260928305/92388600-8d1c-11ea-9993-a726466b5099)
+
 
 ## Endpoints
 ---
 <br>
 
-Create Post:
+### Create Post:
 ```http
 POST /posts HTTP/1.1
 Host: localhost:8000
@@ -35,7 +36,7 @@ Response 201 Created
 
 
 
-Get All
+### Get All:
 
 ```http
 GET /posts HTTP/1.1
@@ -56,7 +57,7 @@ Response 200 OK
 <br>
 <br>
 
-Get One
+### Get One:
 
 ```http
 GET /posts/703048 HTTP/1.1
@@ -75,7 +76,7 @@ Response 200 OK
 <br>
 <br>
 
-Patch One
+### Patch One:
 
 ```http
 PATCH /posts/703048 HTTP/1.1
@@ -100,7 +101,7 @@ Response 200 OK
 <br>
 <br>
 
-Delete One
+### Delete One:
 
 ```http
 DELETE /posts/1 HTTP/1.1
